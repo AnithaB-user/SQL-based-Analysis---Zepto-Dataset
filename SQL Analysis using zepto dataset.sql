@@ -151,4 +151,25 @@ FROM zepto
 GROUP BY category
 ORDER BY total_inventory_weight DESC;
 
+--Q9: Percentage of High-MRP Products That Are Out of Stock
+SELECT
+  ROUND(
+    (SUM(CASE WHEN outOfStock = TRUE THEN 1 ELSE 0 END) * 100.0) /
+    COUNT(*), 2
+  ) AS out_of_stock_percentage
+FROM zepto
+WHERE mrp > 500;
+
+--Q10: Percentage of Total Revenue from Products with ≥20% Discount
+SELECT
+  ROUND(
+    (SUM(CASE WHEN discountPercent >= 20
+              THEN discountedSellingPrice * availableQuantity
+              ELSE 0 END) * 100.0) /
+    SUM(discountedSellingPrice * availableQuantity), 2
+  ) AS high_discount_revenue_percentage
+FROM zepto;
+
+
+
 
