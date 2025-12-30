@@ -71,3 +71,5 @@ Converted mrp and discountedSellingPrice from paise to rupees for consistency an
 - Calculated price per gram to identify value-for-money products
 - Grouped products based on weight into Low, Medium, and Bulk categories
 - Measured total inventory weight per product category
+- Percentage of High-MRP Products That Are Out of Stock
+- Percenatage of Total Revenue from Products with ≥20% Discount.
