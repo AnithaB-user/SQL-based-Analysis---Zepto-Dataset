@@ -10,9 +10,8 @@
 
 USE sqlproject;
 
-/* ============================
-   1. TABLE SETUP
-   ============================ */
+
+1. TABLE SETUP
 
 DROP TABLE IF EXISTS zepto;
 
@@ -29,9 +28,8 @@ CREATE TABLE zepto (
     quantity INT
 );
 
-/* ============================
-   2. DATA EXPLORATION
-   ============================ */
+
+2. DATA EXPLORATION
 
 -- Total number of records
 SELECT COUNT(*) AS total_records
@@ -72,9 +70,7 @@ GROUP BY name
 HAVING COUNT(*) > 1
 ORDER BY number_of_skus DESC;
 
-/* ============================
-   3. DATA CLEANING
-   ============================ */
+ 3. DATA CLEANING
 
 -- Identify invalid price records
 SELECT *
@@ -91,10 +87,9 @@ UPDATE zepto
 SET mrp = mrp / 100,
     discountedSellingPrice = discountedSellingPrice / 100;
 
-/* ============================
-   4. BUSINESS INSIGHTS
-   ============================ */
 
+ 4. BUSINESS INSIGHTS
+  
 -- Q1: Top 10 best-value products by discount percentage
 SELECT DISTINCT name, mrp, discountPercent
 FROM zepto
@@ -156,6 +151,4 @@ FROM zepto
 GROUP BY category
 ORDER BY total_inventory_weight DESC;
 
-/* ============================
-   END OF SCRIPT
-   ============================ */
+
